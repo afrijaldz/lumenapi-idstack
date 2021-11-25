@@ -46,3 +46,16 @@ $router->delete('/delete', function () {
 $router->options('/options', function () {
     return 'OPTIONS';
 });
+
+$router->get('/user/{id}', function ($id) {
+    return 'User id = ' . $id;
+});
+
+$router->get('/post/{postId}/comments/{commentId}', function ($postId, $commentId) {
+    return 'Post ID = ' . $postId . ' Comment ID = ' . $commentId;
+});
+
+// optional parameter
+$router->get('/optional[/{param}]', function ($param = null) {
+    return 'Ini optional param = ' . $param;
+});
