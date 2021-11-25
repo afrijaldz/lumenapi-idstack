@@ -59,3 +59,12 @@ $router->get('/post/{postId}/comments/{commentId}', function ($postId, $commentI
 $router->get('/optional[/{param}]', function ($param = null) {
     return 'Ini optional param = ' . $param;
 });
+
+// route redirect
+$router->get('/profile', function () {
+    return redirect()->route('route.profile');
+});
+
+$router->get('/profile/idstack', ['as' => 'route.profile', function () {
+    return route('route.profile');
+}]);
