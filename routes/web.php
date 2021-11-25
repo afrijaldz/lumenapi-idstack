@@ -68,3 +68,14 @@ $router->get('/profile', function () {
 $router->get('/profile/idstack', ['as' => 'route.profile', function () {
     return route('route.profile');
 }]);
+
+// grouping
+$router->group(['prefix' => 'admin'], function () use ($router) {
+    $router->get('home', function () {
+        return 'Home Admin';
+    });
+
+    $router->get('profile', function () {
+        return 'Profile Admin';
+    });
+});
